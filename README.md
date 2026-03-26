@@ -21,9 +21,14 @@ Skills are invoked in Cowork as `/sprintt:[skill-name]`.
 | Generate SOW | `/sprintt:generate-sow` | Build a Statement of Work with scope, timeline, and fees |
 | Invoicing Guide | `/sprintt:invoicing-guide` | Walk through billing a client milestone in Mercury |
 
-### Coming Soon
+### Wave 2 — Win Deals
 
-- **Wave 2 — Win Deals:** `generate-proposal`, `discovery-prep`
+| Skill | Invocation | Description |
+|-------|-----------|-------------|
+| Discovery Prep | `/sprintt:discovery-prep` | Prepare for a discovery call — ICP assessment, tailored questions, pre-filled follow-up email |
+| Generate Proposal | `/sprintt:generate-proposal` | Generate a client proposal with scoped deliverables, timeline, and investment |
+
+### Coming Soon
 - **Wave 3 — Grow Pipeline:** `write-linkedin-post`, `write-blog-post`, `write-newsletter`
 - **Wave 4 — Run the Business:** `client-onboarding`, `financial-review`, `checklist-update`
 
