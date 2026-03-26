@@ -13,6 +13,9 @@ Before executing, use the GitHub connector to read the following files from the 
 - `company/overview.md` — Sprintt's mission, differentiators, and proof points
 - `company/entity.md` — Calendly booking link and contact details
 - `brand/guidelines.md` — voice and tone guidance for client-facing copy
+- `legal/templates/consulting-agreement.md` — needed if user continues to contract generation inline
+- `legal/templates/design-partner-agreement.md` — needed if user continues to contract generation inline
+- `legal/templates/sow.md` — needed if user continues to SOW generation inline
 
 These files are the source of truth. Every proposal must sound like Sprintt — confident, direct, and specific to what the prospect actually said.
 

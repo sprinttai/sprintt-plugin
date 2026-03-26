@@ -14,3 +14,6 @@ No business data is stored here.
 | `company/overview.md` | Mission, differentiators, and proof points |
 | `company/entity.md` | Calendly booking link and contact details |
 | `brand/guidelines.md` | Voice and tone guidance for client-facing copy |
+| `legal/templates/consulting-agreement.md` | Pre-loaded for inline contract generation |
+| `legal/templates/design-partner-agreement.md` | Pre-loaded for inline contract generation |
+| `legal/templates/sow.md` | Pre-loaded for inline SOW generation |
