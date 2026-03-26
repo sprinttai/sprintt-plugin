@@ -1,0 +1,12 @@
+{
+  "name": "sprintt",
+  "version": "1.0.0",
+  "description": "Sprintt business OS — proposals, contracts, content, and operations for an AI consulting firm.",
+  "author": {
+    "name": "Ricardo Ramirez",
+    "email": "ricardo@sprintt.ai",
+    "url": "https://sprintt.ai"
+  },
+  "repository": "https://github.com/sprinttai/knowledge-base",
+  "keywords": ["consulting", "ai", "proposals", "contracts", "content"]
+}
