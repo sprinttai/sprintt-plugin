@@ -5,7 +5,11 @@ description: Generate a mutual NDA for a new prospect or client. Use when the us
 # Generate NDA
 
 ## Context
-Before executing, read the `reference.md` file in this skill folder. It contains the NDA template and Sprintt's entity details.
+Before executing, use the GitHub connector to read the following files from the **knowledge-base** repository:
+- `legal/templates/nda.md` — the NDA template
+- `company/entity.md` — Sprintt's entity details, address, and signatory
+
+These files are the source of truth. Do not invent or assume any entity details.
 
 ## Inputs
 Ask the user for the following if not already provided (you can ask all at once):
@@ -21,10 +25,11 @@ Ask the user for the following if not already provided (you can ask all at once)
 If the user provides any of this via $ARGUMENTS, use it and only ask for what's missing.
 
 ## Process
-1. Confirm all 7 inputs are collected
-2. Fill in every `[BRACKETED]` field in the NDA template from `reference.md` using the collected inputs
-3. Use today's date for the Effective Date
-4. Output the complete, filled-in NDA
+1. Read the KB files listed in Context above
+2. Confirm all 7 inputs are collected
+3. Fill in every `[BRACKETED]` field in the NDA template using the collected inputs and entity details from the KB
+4. Use today's date for the Effective Date
+5. Output the complete, filled-in NDA
 
 ## Output
 Produce the full NDA as clean, formatted markdown — all brackets replaced, ready to copy into a Google Doc or paste into an e-signature tool (DocuSign, HelloSign, etc.).
@@ -33,7 +38,6 @@ End with a one-line note: "Ready to send. Copy into a Google Doc, convert to PDF
 
 ## Quality Checks
 - Every `[BRACKETED]` field is filled in — none left blank
-- Party A is always "Ramirez Digital Ventures LLC d/b/a Sprintt" — never just "Sprintt"
-- Signatory is always "Ricardo Ramirez, AR"
-- Governing law is State of Florida, Walton County
+- Party A entity name matches exactly what is in `company/entity.md` — never abbreviate
+- Signatory, governing law, and jurisdiction match `company/entity.md` exactly
 - Effective Date matches what the user confirmed
