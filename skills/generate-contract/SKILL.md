@@ -8,7 +8,10 @@ description: Generate a consulting contract for a new client. Use when the user 
 Before executing, use the GitHub connector to read the following files from the **knowledge-base** repository:
 - `legal/templates/consulting-agreement.md` — standard Consulting Services Agreement (MSA)
 - `legal/templates/design-partner-agreement.md` — Design Partner Agreement for early/discounted clients
+- `legal/templates/sow.md` — SOW template (needed if user proceeds to SOW generation)
 - `company/entity.md` — Sprintt's entity details, address, and signatory
+- `services/pricing.md` — pricing rules and rate floor (needed for discount validation and SOW fees)
+- `services/offerings.md` — service descriptions (needed if user proceeds to SOW generation)
 
 These files are the source of truth. Do not invent or assume any entity details.
 
@@ -37,19 +40,33 @@ If the user provides any of this via $ARGUMENTS, use it and only ask for what's 
 ## Process
 1. Read the KB files listed in Context above
 2. Confirm contract type and all required inputs are collected
-3. Fill in every `[BRACKETED]` field using the collected inputs and entity details from the KB
-4. For the Design Partner Agreement, fill in the `[XX]%` discount placeholder with the confirmed percentage
-5. For the NDA reference in the Design Partner Agreement (Section 5.1): if an NDA date was provided, insert it; if no NDA exists, replace the sentence with: "No separate NDA has been executed; the confidentiality provisions of this Section shall govern."
-6. Output the complete, filled-in contract
+3. For Design Partner Agreement: validate that the discount percentage does not push the effective hourly rate below $125/hr (the minimum floor per `services/pricing.md`). The standard rate is $225/hr — a discount above ~44% would breach the floor. If the entered discount would breach it, flag this and ask the user to confirm or adjust before proceeding.
+4. Fill in every `[BRACKETED]` field using the collected inputs and entity details from the KB
+5. For the Design Partner Agreement, fill in the `[XX]%` discount placeholder with the confirmed percentage
+6. For the NDA reference in the Design Partner Agreement (Section 5.1): if an NDA date was provided, insert it; if no NDA exists, replace the sentence with: "No separate NDA has been executed; the confidentiality provisions of this Section shall govern."
+7. Output the complete, filled-in contract
 
 ## Output
 Produce the full contract as clean, formatted markdown — all brackets replaced, ready to copy into a Google Doc or paste into an e-signature tool.
 
-End with a one-line note: "Ready to send. Copy into a Google Doc, convert to PDF, and send for e-signature."
+After the contract, ask:
+
+---
+"The contract references a Statement of Work (SOW) as Exhibit A — both need to be ready before you send anything for signature. Do you want to generate the SOW now?
+
+- **Yes** — I'll continue here using the client details I already have
+- **No** — You can run `/sprintt:generate-sow` separately when ready"
+
+---
+
+If the user says **yes**, proceed directly into SOW generation using all client details already collected (name, short name, address, contact, email, effective date, contract type and date). Follow the full process from the `generate-sow` skill — collect scope, timeline, and commercial inputs, then output the complete SOW. Label it as Exhibit A.
+
+If the user says **no**, end with: "Ready when you are. Run `/sprintt:generate-sow` to generate the SOW separately before sending."
 
 ## Quality Checks
 - Every `[BRACKETED]` field is filled in — none left blank
 - Consultant/Party A entity name matches exactly what is in `company/entity.md` — never abbreviate
 - Signatory, governing law, and jurisdiction match `company/entity.md` exactly
-- For Design Partner Agreement: discount percentage is filled in and the SOW exhibit reference is noted
+- For Design Partner Agreement: discount percentage is filled in, effective rate is at or above $125/hr, and SOW exhibit reference is noted
 - Effective Date matches what the user confirmed
+- User is always prompted about the SOW before the skill ends
