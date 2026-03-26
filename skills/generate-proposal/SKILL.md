@@ -11,6 +11,7 @@ Before executing, use the GitHub connector to read the following files from the 
 - `services/pricing.md` — pricing ranges, payment structures, and rate rules
 - `services/ideal-client.md` — ICP profiles to assess prospect fit
 - `company/overview.md` — Sprintt's mission, differentiators, and proof points
+- `company/entity.md` — Calendly booking link and contact details
 - `brand/guidelines.md` — voice and tone guidance for client-facing copy
 
 These files are the source of truth. Every proposal must sound like Sprintt — confident, direct, and specific to what the prospect actually said.
@@ -77,4 +78,5 @@ If the user says **no**, end with: "Run `/sprintt:generate-contract` when the cl
 - Proof points from `company/overview.md` are included in "Why Sprintt"
 - Voice matches `brand/guidelines.md` — confident, direct, no hedging language
 - Proposal validity date is 30 days from today
+- Calendly link in Next Steps is pulled from `company/entity.md` — never hardcoded
 - Entity footer reads: "Ramirez Digital Ventures LLC d/b/a Sprintt · ricardo@sprintt.ai · sprintt.ai"

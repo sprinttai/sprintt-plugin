@@ -12,4 +12,5 @@ No business data is stored here.
 | `services/pricing.md` | Pricing ranges, payment structures, and rate rules |
 | `services/ideal-client.md` | ICP profiles for prospect fit assessment |
 | `company/overview.md` | Mission, differentiators, and proof points |
+| `company/entity.md` | Calendly booking link and contact details |
 | `brand/guidelines.md` | Voice and tone guidance for client-facing copy |
