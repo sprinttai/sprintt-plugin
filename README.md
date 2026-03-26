@@ -19,7 +19,7 @@ Skills are invoked in Cowork as `/sprintt:[skill-name]`.
 | Generate NDA | `/sprintt:generate-nda` | Draft a mutual NDA for a new prospect or client |
 | Generate Contract | `/sprintt:generate-contract` | Generate a Consulting Services Agreement or Design Partner Agreement |
 | Generate SOW | `/sprintt:generate-sow` | Build a Statement of Work with scope, timeline, and fees |
-| Generate Invoice | `/sprintt:generate-invoice` | Create a professional invoice with payment instructions |
+| Invoicing Guide | `/sprintt:invoicing-guide` | Walk through billing a client milestone in Mercury |
 
 ### Coming Soon
 
