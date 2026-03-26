@@ -34,7 +34,7 @@ Collect the following (ask in two rounds — prospect context first, then engage
 10. Estimated timeline (phases and duration)
 11. Will contractors be involved? If yes, get hours and rate to calculate price floor per `services/pricing.md`
 12. Proposed fee — confirm against ranges in `services/pricing.md` before proceeding
-13. Any relevant proof points or outcomes to highlight for this specific client
+13. Any relevant client case studies or outcomes to highlight for this specific client (optional — if none, skill will use proof points from `company/overview.md`)
 
 If the user provides any of this via $ARGUMENTS, use it and only ask for what's missing.
 
@@ -47,7 +47,7 @@ If the user provides any of this via $ARGUMENTS, use it and only ask for what's 
 6. Write the proposal using the template from `legal/templates/proposal.md`, applying Sprintt's voice and tone from `brand/guidelines.md`:
    - Be specific and concrete — use the client's language from discovery
    - Lead with their goal, not Sprintt's capabilities
-   - Use proof points from `company/overview.md` that are most relevant to this client's situation
+   - For the "Why Sprintt" proof point: if the user has a relevant client case study or outcome to share, use it. If not — which is expected early on — use the most relevant metric from `company/overview.md` (e.g., "Discovery cycles: 3 months → 1 week", "Bug-fix effort: 70% reduction", "Technical docs: 90% faster") matched to what matters most to this specific client. Never leave this placeholder blank or fabricate a client story.
    - If contractor is involved, include the contractor delivery note in "How This Works"
    - If Design Partner: note the discount and reference the Design Partner Agreement
 7. Output the complete, filled-in proposal
