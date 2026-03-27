@@ -53,7 +53,7 @@ Follow the wave priority in `/Users/ricardoramirez/Documents/Projects/knowledge-
 - **Wave 1 (Get Paid):** generate-nda ✅, generate-contract ✅, generate-sow ✅, invoicing-guide ✅
 - **Wave 2 (Win Deals):** generate-proposal ✅, discovery-prep ✅
 - **Wave 3 (Grow Pipeline):** write-linkedin-post ✅, write-blog-post ✅, write-newsletter ✅
-- **Wave 4 (Run the Business):** client-onboarding, financial-review, checklist-update
+- **Wave 4 (Run the Business):** client-onboarding ✅, financial-review ✅, checklist-update ✅
 
 ## Rules
 

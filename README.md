@@ -36,8 +36,13 @@ Skills are invoked in Cowork as `/sprintt:[skill-name]`.
 | Write Blog Post | `/sprintt:write-blog-post` | Write an SEO-optimized blog post as a ready-to-publish MDX file |
 | Write Newsletter | `/sprintt:write-newsletter` | Draft an "AI in Practice" newsletter issue ready to paste into any platform |
 
-### Coming Soon
-- **Wave 4 — Run the Business:** `client-onboarding`, `financial-review`, `checklist-update`
+### Wave 4 — Run the Business
+
+| Skill | Invocation | Description |
+|-------|-----------|-------------|
+| Client Onboarding | `/sprintt:client-onboarding` | Walk through the onboarding checklist for a new client engagement |
+| Financial Review | `/sprintt:financial-review` | Monthly financial health check — actuals vs. targets, flags, and next actions |
+| Checklist Update | `/sprintt:checklist-update` | Review the business launch checklist and surface the next priorities |
 
 ## How It Works
 
