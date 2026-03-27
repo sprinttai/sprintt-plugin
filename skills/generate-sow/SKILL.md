@@ -55,13 +55,10 @@ If the user provides any of this via $ARGUMENTS, use it and only ask for what's 
 2. Collect all inputs above — you may ask in two rounds (project context + scope first, then commercial terms)
 3. For contractor engagements: calculate the project price floor using the formula in `services/pricing.md` before suggesting a fee. Never quote a project with contractor involvement without knowing the actual contractor rate first.
 4. For pricing: if the user hasn't specified fees, suggest a range based on service type and complexity using `services/pricing.md`, and ask the user to confirm before proceeding
-5. Determine payment schedule using the rules in `services/pricing.md`:
-   - Under $5,000: 50% upfront, 50% on delivery
-   - $5,000–$15,000: 40% upfront, 30% at midpoint, 30% on delivery
-   - Over $15,000: 30% upfront, monthly milestones, 20% on delivery
+5. Determine payment schedule using the rules in `services/pricing.md` — apply the correct tier based on total project fee as defined there
 6. Before finalizing scope, confirm revision rounds and deemed acceptance window with the user — explain that the deemed acceptance clause (Section 6.3) means the client's silence after the review window constitutes approval, and is one of the strongest protections against stalled projects
 7. Fill in every `[BRACKETED]` field in the SOW template using confirmed inputs
-8. For the additional work rate in Section 4.3: use $225/hr standard; if Design Partner, ask for the agreed partner hourly rate
+8. For the additional work rate in Section 4.3: use the standard hourly rate from `services/pricing.md`; if Design Partner, ask for the agreed partner hourly rate
 9. Output the complete, filled-in SOW
 
 ## Output
@@ -75,7 +72,7 @@ End with a one-line note: "Ready to attach as Exhibit A or send standalone. Copy
 - Fees are consistent with the ranges in `services/pricing.md` — flag if they fall outside the range
 - If contractors are involved, fees reflect the contractor pricing formula from `services/pricing.md`
 - Payment schedule matches the rules in `services/pricing.md` based on total fee
-- Standard hourly rate for additional work is $225/hr (or confirmed Design Partner rate)
+- Standard hourly rate for additional work is sourced from `services/pricing.md` (or confirmed Design Partner rate)
 - Revision rounds and deemed acceptance window are explicitly stated and confirmed by user — not left as template defaults
 - Signatory matches `company/entity.md` exactly
 - Out-of-scope section explicitly lists at least one exclusion to prevent scope creep

@@ -1,14 +1,14 @@
-# write-newsletter — KB Dependencies
+# Reference — Write Newsletter
 
-This skill reads the following files from the connected knowledge base at runtime:
+This skill reads live data from the private **knowledge-base** repository via the GitHub connector.
+No business data is stored here.
 
-## Required Files
+## KB Dependencies
 
-- `marketing/strategy.md`
-  - Newsletter name ("AI in Practice"), format (use case + tool + tip), cadence (weekly/biweekly), goals (200 subscribers Q2 2026), content calendar (Thursday = newsletter day)
-
-- `brand/guidelines.md`
-  - Voice & tone (confident, direct, technical but accessible, personality-forward), copy do/don't examples, brand name rules ("Sprintt" with double-t, capitalize S in text)
+| File | Purpose |
+|------|---------|
+| `marketing/strategy.md` | Newsletter name ("AI in Practice"), format (use case + tool + tip), cadence (weekly/biweekly), goals (200 subscribers Q2 2026), content calendar (Thursday = newsletter day) |
+| `brand/guidelines.md` | Voice & tone (confident, direct, technical but accessible, personality-forward), copy do/don't examples, brand name rules ("Sprintt" with double-t, capitalize S in text) |
 
 ## Notes
 

@@ -40,7 +40,7 @@ If the user provides any of this via $ARGUMENTS, use it and only ask for what's 
 ## Process
 1. Read the KB files listed in Context above
 2. Confirm contract type and all required inputs are collected
-3. For Design Partner Agreement: validate that the discount percentage does not push the effective hourly rate below $125/hr (the minimum floor per `services/pricing.md`). The standard rate is $225/hr — a discount above ~44% would breach the floor. If the entered discount would breach it, flag this and ask the user to confirm or adjust before proceeding.
+3. For Design Partner Agreement: validate that the discount percentage does not push the effective hourly rate below the minimum rate floor defined in `services/pricing.md`. Apply the discount to the standard hourly rate from `services/pricing.md` and confirm the result meets or exceeds that floor. If the entered discount would breach it, flag this and ask the user to confirm or adjust before proceeding.
 4. Fill in every `[BRACKETED]` field using the collected inputs and entity details from the KB
 5. For the Design Partner Agreement, fill in the `[XX]%` discount placeholder with the confirmed percentage
 6. For the NDA reference in the Design Partner Agreement (Section 5.1): if an NDA date was provided, insert it; if no NDA exists, replace the sentence with: "No separate NDA has been executed; the confidentiality provisions of this Section shall govern."
@@ -67,6 +67,6 @@ If the user says **no**, end with: "Ready when you are. Run `/sprintt:generate-s
 - Every `[BRACKETED]` field is filled in — none left blank
 - Consultant/Party A entity name matches exactly what is in `company/entity.md` — never abbreviate
 - Signatory, governing law, and jurisdiction match `company/entity.md` exactly
-- For Design Partner Agreement: discount percentage is filled in, effective rate is at or above $125/hr, and SOW exhibit reference is noted
+- For Design Partner Agreement: discount percentage is filled in, effective rate is at or above the minimum floor from `services/pricing.md`, and SOW exhibit reference is noted
 - Effective Date matches what the user confirmed
 - User is always prompted about the SOW before the skill ends

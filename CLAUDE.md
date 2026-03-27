@@ -23,10 +23,10 @@ The Sprintt knowledge base (source of truth for all business context) lives at:
 | Skill | KB Files to Read |
 |-------|-----------------|
 | `generate-nda` | `legal/templates/nda.md`, `company/entity.md` |
-| `generate-contract` | `legal/templates/consulting-agreement.md`, `legal/templates/design-partner-agreement.md`, `company/entity.md` |
-| `generate-sow` | `legal/templates/sow.md`, `services/pricing.md`, `services/offerings.md` |
+| `generate-contract` | `legal/templates/consulting-agreement.md`, `legal/templates/design-partner-agreement.md`, `legal/templates/sow.md`, `company/entity.md`, `services/pricing.md`, `services/offerings.md` |
+| `generate-sow` | `legal/templates/sow.md`, `services/pricing.md`, `services/offerings.md`, `company/entity.md` |
 | `generate-proposal` | `legal/templates/proposal.md`, `services/offerings.md`, `services/pricing.md`, `services/ideal-client.md`, `company/overview.md`, `brand/guidelines.md` |
-| `invoicing-guide` | `company/entity.md`, `company/finances.md` |
+| `invoicing-guide` | `company/entity.md`, `company/finances.md`, `services/pricing.md` |
 | `discovery-prep` | `operations/discovery-call.md`, `services/offerings.md`, `services/ideal-client.md` |
 | `write-linkedin-post` | `marketing/strategy.md`, `brand/guidelines.md`, `company/overview.md` |
 | `write-blog-post` | `marketing/strategy.md`, `brand/guidelines.md`, `services/offerings.md` |

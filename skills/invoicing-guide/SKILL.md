@@ -26,7 +26,7 @@ If the user provides any of this via $ARGUMENTS, use it and only ask for what's 
 ## Process
 1. Read the KB files listed in Context above
 2. Calculate the exact amount due for the current milestone based on the payment schedule and total fee
-3. Determine the due date (Net 15 from today unless otherwise agreed in the SOW)
+3. Determine the due date using the payment terms from `services/pricing.md` and `company/finances.md` unless otherwise agreed in the SOW
 4. Walk the user through entering the invoice in Mercury step by step
 5. Flag any reminders relevant to this invoice
 
@@ -38,7 +38,7 @@ Produce a clear billing summary followed by Mercury instructions:
 - SOW: [SOW NUMBER]
 - Milestone: [MILESTONE NAME]
 - Amount to bill: $[AMOUNT]
-- Due date: [DATE] (Net 15 from today)
+- Due date: [DATE] ([payment terms from services/pricing.md] from today)
 - Line item description to use: [DESCRIPTION]
 
 **How to enter in Mercury**
@@ -48,7 +48,7 @@ Produce a clear billing summary followed by Mercury instructions:
 4. Add recipient: [CLIENT NAME]
 5. Line item description: [DESCRIPTION matching the SOW milestone]
 6. Amount: $[AMOUNT]
-7. In the invoice notes, add: "Payment terms: Net 15. Invoices unpaid after 15 days accrue interest at 1.5% per month per the consulting agreement."
+7. In the invoice notes, add: "Payment terms: [payment terms from services/pricing.md]. Invoices unpaid after [term] days accrue interest at [late payment rate from services/pricing.md] per the consulting agreement."
 8. Send to: [CLIENT EMAIL]
 
 **Reminders**
@@ -58,6 +58,6 @@ Produce a clear billing summary followed by Mercury instructions:
 
 ## Quality Checks
 - Amount matches the correct milestone percentage of the SOW total — double-check the math
-- Due date is Net 15 from today unless SOW specifies otherwise
-- Late payment language is included in the Mercury invoice notes
+- Due date uses payment terms from `services/pricing.md` unless SOW specifies otherwise
+- Late payment language is included in the Mercury invoice notes — terms and interest rate sourced from `services/pricing.md`
 - W-9 reminder is surfaced for first invoices to a new client
