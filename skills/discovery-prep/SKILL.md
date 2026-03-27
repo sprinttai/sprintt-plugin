@@ -5,7 +5,7 @@ description: Prepare for a discovery call with a prospect. Use when the user has
 # Discovery Prep
 
 ## Context
-Before executing, read the following files directly from the **knowledge-base** directory (it is mounted and accessible — use the Read tool):
+Before executing, locate the knowledge-base by running `find /sessions -maxdepth 4 -name "knowledge-base" -type d 2>/dev/null | head -1`, then read the following files from that path:
 - `operations/discovery-call.md` — call structure, questions, red flags, and follow-up template
 - `services/offerings.md` — service descriptions to identify likely fit
 - `services/ideal-client.md` — ICP profiles to assess prospect fit and spot anti-patterns

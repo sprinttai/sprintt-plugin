@@ -5,7 +5,7 @@ description: Generate a consulting contract for a new client. Use when the user 
 # Generate Contract
 
 ## Context
-Before executing, read the following files directly from the **knowledge-base** directory (it is mounted and accessible — use the Read tool):
+Before executing, locate the knowledge-base by running `find /sessions -maxdepth 4 -name "knowledge-base" -type d 2>/dev/null | head -1`, then read the following files from that path:
 - `legal/templates/consulting-agreement.md` — standard Consulting Services Agreement (MSA)
 - `legal/templates/design-partner-agreement.md` — Design Partner Agreement for early/discounted clients
 - `legal/templates/sow.md` — SOW template (needed if user proceeds to SOW generation)

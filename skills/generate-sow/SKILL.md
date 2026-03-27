@@ -5,7 +5,7 @@ description: Generate a Statement of Work (SOW) for a client engagement. Use whe
 # Generate SOW
 
 ## Context
-Before executing, read the following files directly from the **knowledge-base** directory (it is mounted and accessible — use the Read tool):
+Before executing, locate the knowledge-base by running `find /sessions -maxdepth 4 -name "knowledge-base" -type d 2>/dev/null | head -1`, then read the following files from that path:
 - `legal/templates/sow.md` — the SOW template (covers both project-based and retainer engagements)
 - `legal/defaults.md` — standard contractual terms (review acceptance window, revision rounds)
 - `services/pricing.md` — pricing ranges, payment structure rules, hourly rates, and retainer tier details

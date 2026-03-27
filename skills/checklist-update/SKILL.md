@@ -5,7 +5,7 @@ description: Review the Sprintt business launch checklist, surface what's been c
 # Checklist Update
 
 ## Context
-Before executing, read the following files directly from the **knowledge-base** directory (it is mounted and accessible — use the Read tool):
+Before executing, locate the knowledge-base by running `find /sessions -maxdepth 4 -name "knowledge-base" -type d 2>/dev/null | head -1`, then read the following files from that path:
 - `business-plan/checklist.md` — the master Sprintt launch checklist organized by phase
 
 This file is the source of truth. Do not invent or assume any checklist items. Work only with what is in the file.

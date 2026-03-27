@@ -5,7 +5,7 @@ description: Write a blog post for sprintt.ai. Use when the user asks to write, 
 # Write Blog Post
 
 ## Context
-Before executing, read the following files directly from the **knowledge-base** directory (it is mounted and accessible — use the Read tool):
+Before executing, locate the knowledge-base by running `find /sessions -maxdepth 4 -name "knowledge-base" -type d 2>/dev/null | head -1`, then read the following files from that path:
 - `marketing/strategy.md` — blog content strategy, SEO approach, and content goals
 - `brand/guidelines.md` — voice, tone, and copy rules
 - `services/offerings.md` — service descriptions to accurately represent what Sprintt does
