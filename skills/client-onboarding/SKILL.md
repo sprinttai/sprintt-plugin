@@ -9,17 +9,18 @@ Before executing, use the GitHub connector to read the following files from the 
 - `operations/client-onboarding.md` — the full onboarding checklist by phase
 - `operations/workflows.md` — the lead-to-client pipeline and delivery standards
 - `company/entity.md` — Sprintt's legal name and contact info for any client-facing documents
+- `services/pricing.md` — payment structure rules, retainer terms, expense reimbursement policy, and out-of-scope billing rates
 
-These files are the source of truth. Do not invent or assume any onboarding steps.
+These files are the source of truth. Do not invent or assume any onboarding steps or billing rules.
 
 ## Inputs
 Collect the following:
 
 1. **Client name** — the company or individual being onboarded
 2. **Project name** — the engagement name or SOW title
-3. **Engagement type** — Design Partner or Standard Client (affects closeout steps)
+3. **Engagement type** — Design Partner, Standard Client, or Retainer (Advisor / Builder / Partner tier)
 4. **Signed date** — when was the agreement fully executed?
-5. **SOW payment schedule** — the milestone breakdown and total fee (e.g., "$10,000 total: 40% upfront, 30% at midpoint, 30% on delivery")
+5. **SOW payment schedule** — the milestone breakdown and total fee (e.g., "$10,000 total: 40% upfront, 30% at midpoint, 30% on delivery"). For retainers: monthly rate and tier.
 6. **Contractor involved?** — is an SDLC contractor on this engagement? (yes/no — if yes, ask for their name/role and agreed hourly rate)
 7. **Current phase** — starting from scratch (pre-kickoff) or mid-engagement? If mid-engagement, which steps are already complete?
 
@@ -43,22 +44,31 @@ If a contractor is involved, address these before any other onboarding steps:
 
 Flag any outstanding items before proceeding. The contractor must be fully aligned and documented before kickoff.
 
-### Step 2 — Walk Each Phase
+### Step 2 — Capture All Client Contacts
+Before kickoff, confirm three distinct contacts on the client side:
+
+- **Primary POC** — day-to-day communication (name, email, phone)
+- **Billing contact** — who approves and processes invoices (often a different person, especially at companies). If same as POC, confirm explicitly.
+- **Escalation contact** — who to go to if the primary POC is unresponsive and something is blocking delivery
+
+Missing the billing contact is the most common reason invoices get delayed. Capture all three upfront.
+
+### Step 3 — Walk Each Phase
 Present each phase of the checklist from `operations/client-onboarding.md` in order. Cover all phases:
 
 - **Pre-Kickoff** (must complete within 48 hours of signed agreement)
-- **Kickoff Meeting** — see Step 3 for items to add beyond the standard checklist
-- **Post-Kickoff** (within first week)
+- **Kickoff Meeting** — see Step 4 for items to add beyond the standard checklist
+- **Post-Kickoff** (within first week) — see Step 5 for access tracking
 - **Ongoing Throughout Engagement** — these are weekly recurring actions for the life of the engagement, not a one-time checklist. Present them as a cadence to set up, not items to check off once.
 - **Closeout**
 
 For each phase, present the items as a scannable checklist. Ask the user to confirm which are done and which are outstanding. Flag any time-sensitive items based on the signed date.
 
-### Step 3 — Kickoff Meeting Additions
+### Step 4 — Kickoff Meeting Additions
 In addition to the standard kickoff checklist items, confirm the following are covered during the kickoff meeting:
 
 **Scope change process:**
-Explicitly communicate to the client: all scope changes must be documented in writing and approved before work begins. No verbal change orders. This protects both parties and must be stated clearly at kickoff — not enforced for the first time when a dispute arises.
+Explicitly communicate to the client: all scope changes must be documented in writing and approved before work begins. No verbal change orders. Out-of-scope work is billed at the standard hourly rate ($225/hr) — the client needs to hear this number at kickoff, not when they see it on an invoice.
 
 **Deliverable approval process:**
 Walk the client through how approvals work. Per the SOW:
@@ -66,18 +76,41 @@ Walk the client through how approvals work. Per the SOW:
 - If no feedback is received within that window, the deliverable is deemed accepted
 - Feedback must be consolidated — one round of revisions per deliverable unless additional rounds are scoped
 
-Make sure the client understands and agrees to this process at kickoff. It prevents scope creep and protects you at closeout.
+**Expense reimbursement:**
+Remind the client (even though it's in the contract) that out-of-pocket costs incurred on their behalf — API credits, third-party tool licenses, travel — are passed through at cost. Any single expense over $100 requires prior written approval. Establishing this verbally at kickoff prevents surprise invoice line items later.
 
-### Step 4 — Invoice Reminder Schedule
-Using the SOW payment schedule provided, calculate each invoice milestone and output a calendar reminder schedule:
+**Retainer-specific (if applicable):**
+If this is a retainer engagement, walk the client through:
+- Billing is monthly in advance
+- Unused hours do not roll over
+- Overages beyond the monthly commitment are billed at $225/hr at end of month
+- Pausing is not available during the initial 3-month commitment; after that, one pause per 12 months with 30 days written notice
 
+### Step 5 — Document Access Requirements
+At kickoff, the "Access requirements identified" checklist item must produce an explicit list — not just a conversation. For each system, dataset, or tool Ricardo needs:
+
+- What is it? (e.g., GitHub repo, Salesforce sandbox, Google Analytics)
+- Who on the client side is responsible for granting access?
+- What is the expected turnaround?
+
+Output this as a named access list. Post-kickoff can then be checked against it item by item. Without a list, "all access received" has no definition.
+
+### Step 6 — Invoice Reminder Schedule
+Using the SOW payment schedule provided, calculate each invoice milestone and output a calendar reminder schedule.
+
+**For project engagements:**
 - Calculate the exact dollar amount for each milestone
-- Assign a target invoice date for each (based on signed date, project timeline, or milestone delivery)
-- Note: if a milestone invoice goes unpaid past Net 15, work pauses until payment is received per the consulting agreement — remind the user to follow up the next business day after the due date if unpaid
+- Assign a target invoice date for each
+- If a milestone invoice goes unpaid past Net 15, work pauses until payment is received
+
+**For retainer engagements:**
+- First invoice is due before the engagement begins (billed in advance)
+- Set a recurring monthly reminder to invoice on the same day each month
+- Flag the overage billing reminder: review hours used at end of each month and invoice any overages separately
 
 Output as a table the user can use to set calendar reminders.
 
-### Step 5 — Late Payment Protocol
+### Step 7 — Late Payment Protocol
 Surface the late payment process so it's understood before it's needed:
 
 - Invoice due date: Net 15 from invoice date (unless otherwise agreed in the SOW)
@@ -86,7 +119,7 @@ Surface the late payment process so it's understood before it's needed:
 - Day 30+: Late payment interest begins accruing at 1.5% per month per the contract
 - Do not absorb late payments silently — the contract gives you the right to pause and charge interest. Use it.
 
-### Step 6 — Summarize Outstanding Actions
+### Step 8 — Summarize Outstanding Actions
 After all phases, output a prioritized list of everything still outstanding, ordered by urgency.
 
 ## Output
@@ -109,6 +142,13 @@ After all phases, output a prioritized list of everything still outstanding, ord
 
 ---
 
+**Client Contacts**
+- Primary POC: [NAME] — [EMAIL] — [PHONE]
+- Billing contact: [NAME] — [EMAIL] *(confirm separately from POC)*
+- Escalation contact: [NAME] — [EMAIL]
+
+---
+
 **[Phase Name]**
 - [x] Completed item
 - [ ] Outstanding item — [note or deadline]
@@ -118,8 +158,18 @@ After all phases, output a prioritized list of everything still outstanding, ord
 ---
 
 **Kickoff Agenda Additions**
-- [ ] Scope change process communicated — client understands all changes require written approval before work begins
+- [ ] Scope change process communicated — client understands all changes require written approval; out-of-scope work billed at $225/hr
 - [ ] Deliverable approval process communicated — client understands the acceptance window and deemed acceptance clause
+- [ ] Expense reimbursement communicated — pass-through at cost, expenses over $100 require prior written approval
+- [ ] Retainer terms communicated *(if applicable)* — billing in advance, no rollover, overage rate, pause policy
+
+---
+
+**Access Requirements** *(produced at kickoff)*
+| System / Tool | Owner on Client Side | Expected Turnaround | Received? |
+|---------------|---------------------|--------------------:|-----------|
+| [e.g., GitHub repo] | [NAME] | [DATE] | [ ] |
+| [e.g., Salesforce sandbox] | [NAME] | [DATE] | [ ] |
 
 ---
 
@@ -129,6 +179,8 @@ After all phases, output a prioritized list of everything still outstanding, ord
 | Upfront deposit | $[X] | [DATE] | N/A — collect before kickoff |
 | Midpoint | $[X] | [DATE] | [DATE + 16 days] |
 | Final delivery | $[X] | [DATE] | [DATE + 16 days] |
+
+*(For retainers: recurring monthly invoice on [DAY] + end-of-month overage check)*
 
 **Late payment protocol:** Day 16 — follow up. Day 21 — pause work, notify in writing. Day 30 — interest accrues at 1.5%/mo.
 
@@ -150,10 +202,13 @@ After all phases, output a prioritized list of everything still outstanding, ord
 - Weekly status updates are a recurring commitment — set a recurring calendar reminder
 
 ## Quality Checks
-- Contractor W-9 and payment terms are flagged if a contractor is involved — do not skip
-- Ongoing phase items are presented as a weekly recurring cadence, not a one-time checklist
-- Scope change and deliverable approval processes are explicitly in the kickoff additions
-- Invoice schedule math matches the SOW total and payment percentages exactly
-- Late payment protocol is always included in the invoice section — not optional
+- All three client contacts captured (primary POC, billing, escalation)
+- Contractor W-9 and payment terms flagged if a contractor is involved — do not skip
+- Ongoing phase items presented as a weekly recurring cadence, not a one-time checklist
+- Scope change process, out-of-scope rate ($225/hr), deliverable approval, and expense reimbursement all included in kickoff agenda
+- Retainer-specific billing terms covered at kickoff if engagement type is retainer
+- Access requirements documented as a named list at kickoff — not a general conversation
+- Invoice schedule reflects project or retainer billing correctly
+- Late payment protocol always included — not optional
 - Design Partner closeout includes case study initiation and referral conversation
-- No phase is skipped — all five phases are presented even if the user is starting mid-engagement
+- No phase is skipped — all five phases presented even if starting mid-engagement

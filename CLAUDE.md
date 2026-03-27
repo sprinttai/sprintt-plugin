@@ -31,7 +31,7 @@ The Sprintt knowledge base (source of truth for all business context) lives at:
 | `write-linkedin-post` | `marketing/strategy.md`, `brand/guidelines.md`, `company/overview.md` |
 | `write-blog-post` | `marketing/strategy.md`, `brand/guidelines.md`, `services/offerings.md` |
 | `write-newsletter` | `marketing/strategy.md`, `brand/guidelines.md` |
-| `client-onboarding` | `operations/client-onboarding.md`, `operations/workflows.md` |
+| `client-onboarding` | `operations/client-onboarding.md`, `operations/workflows.md`, `company/entity.md`, `services/pricing.md` |
 | `financial-review` | `company/finances.md`, `business-plan/plan.md` |
 | `checklist-update` | `business-plan/checklist.md` |
 
