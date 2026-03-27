@@ -111,12 +111,12 @@ After completing the phase walkthrough, produce a calendar reminder schedule bas
 - Include an end-of-month overage check reminder
 
 ### Step 7 — Late Payment Protocol
-After the invoice schedule, surface the late payment process so it's understood before it's needed. Pull payment terms and late payment interest rate from `services/pricing.md` — do not state specific figures from memory:
+After the invoice schedule, surface the late payment process so it's understood before it's needed. Pull all thresholds, terms, and interest rates from `services/pricing.md` and the applicable agreement — do not hardcode or state specific figures from memory:
 
-- Day 1–[Net term from pricing.md]: Payment window
-- Day [Net term + 1]: Follow up with a polite but direct email if unpaid
-- Day 21+: Work pauses. Notify the client in writing that work is on hold pending payment per the consulting agreement
-- Day 30+: Late payment interest begins accruing per the rate in the consulting agreement
+- **Day 1 through Net term (from pricing.md):** Payment window — no action needed
+- **Day [Net term + 1]:** Follow up with a polite but direct email if unpaid
+- **Day [suspension threshold from pricing.md]:** Work pauses. Notify the client in writing that work is on hold pending payment per the signed agreement. Read the exact suspension threshold from `services/pricing.md` — do not assume a number.
+- **Ongoing while unpaid:** Late payment interest accrues per the rate in `services/pricing.md`. Read the rate — do not state it from memory.
 - Do not absorb late payments silently — the contract gives Ricardo the right to pause and charge interest. Use it.
 
 ### Step 8 — Summarize Outstanding Actions
