@@ -7,27 +7,31 @@ description: Conduct a monthly financial review — input actuals, compare to ta
 ## Context
 Before executing, use the GitHub connector to read the following files from the **knowledge-base** repository:
 - `company/finances.md` — operating costs, revenue tracking, financial goals, budget rules, tool renewal dates, and tax notes
-- `business-plan/plan.md` — financial projections, quarterly targets, success metrics, and client concentration rules
+- `business-plan/plan.md` — financial projections, quarterly targets, success metrics, client concentration rules, and gross margin targets
 
-Read both files before collecting any inputs. Pull all overhead figures, targets, and rules directly from the KB — do not assume or hardcode any numbers.
+Read both files before collecting any inputs. Pull all overhead figures, targets, margins, and rules directly from the KB — do not assume or hardcode any numbers.
 
 ## Inputs
-Collect conversationally, one section at a time. Start with the numbers, then move to assessment:
+Collect conversationally, one section at a time. Start with the numbers, then move to assessment.
+
+**Before collecting any numbers — confirm Mercury is reconciled:**
+Ask the user: has the Mercury account been reconciled this month? If no, prompt them to reconcile before proceeding. The accuracy of every calculation in this review depends on the Mercury balance and transaction history being current. Do not proceed with unreconciled numbers.
 
 **Section 1 — Cash & Revenue**
 1. **Month and year** being reviewed
-2. **Mercury account balance** — the actual current balance in the Mercury business checking account (this is the foundation for runway calculation)
+2. **Mercury account balance** — the actual current balance after reconciliation
 3. **Revenue received this month** — payments that actually landed in Mercury, not invoices sent
 4. **Outstanding invoices** — for each outstanding invoice: client name, amount, invoice date, and due date (to distinguish current vs. overdue)
 5. **YTD revenue** — total received since January 1 (or business start if mid-year)
 
 **Section 2 — Expenses**
-6. **Contractor costs this month** — any payments made to contractors working on client engagements (separate from standard overhead)
-7. **New or one-time expenses** — anything beyond the standard recurring overhead in `finances.md`
+6. **Contractor costs paid this month** — payments already sent to contractors
+7. **Contractor payments due but not yet paid** — any contractor invoices received but not yet paid (affects true cash position)
+8. **New or one-time expenses** — anything beyond the standard recurring overhead in `finances.md`
 
 **Section 3 — Business Health**
-8. **Active clients and monthly revenue per client** — needed to check client concentration
-9. **Pipeline** — proposals out (with estimated values), discovery calls scheduled, deals close to closing
+9. **Active clients, revenue per client, and contractor hours used per project** — needed for both client concentration and gross margin checks
+10. **Pipeline** — proposals out (with estimated values), discovery calls scheduled, deals close to closing
 
 If the user provides any of this via $ARGUMENTS, use it and only ask for what's missing.
 
@@ -36,11 +40,12 @@ If the user provides any of this via $ARGUMENTS, use it and only ask for what's 
 Work through this skill conversationally, section by section. Present calculations and assessments after each section, ask if anything looks off, then move on. Do not output everything at once.
 
 ### Step 1 — Cash Position & Runway
-After collecting Section 1 inputs:
+After collecting Section 1 and 2 inputs:
 
 - Pull monthly overhead from `finances.md` (do not guess)
-- Calculate **runway:** Mercury balance ÷ monthly overhead = months of runway if revenue stopped today
-- Calculate **net received this month:** revenue received - monthly overhead - contractor costs
+- Calculate **true cash position:** Mercury balance - contractor payments due but not yet paid
+- Calculate **runway:** true cash position ÷ monthly overhead = months of runway if revenue stopped today
+- Calculate **net received this month:** revenue received - monthly overhead - contractor costs paid
 - Flag any outstanding invoices that are past their due date as **overdue** — these need immediate follow-up action, not just a note
 - Present a clean cash summary and ask the user to confirm before proceeding
 
@@ -59,11 +64,17 @@ After confirming cash position:
 - Assess pace: on track, behind, or ahead — and how much is needed in remaining weeks to hit the quarter
 - Check YTD against the annual target
 
-### Step 4 — Expense Review
-- Pull budget rules from `finances.md`
-- Total all expenses: standard overhead + contractor costs + new/one-time expenses
+### Step 4 — Expense Review & Gross Margin Check
+- Pull budget rules and gross margin targets from `finances.md` and `business-plan/plan.md`
+- Total all expenses: standard overhead + contractor costs paid + new/one-time expenses
 - Check for budget rule violations (e.g., monthly overhead exceeding the target ceiling)
-- Check tool renewal dates from `finances.md` — flag any tools renewing in the next 60 days so there are no surprise charges
+- Check tool renewal dates from `finances.md` — flag any tools renewing in the next 60 days
+
+**Gross margin check (if contractor was used this month):**
+- Pull gross margin targets from `business-plan/plan.md` (varies by engagement type — Ricardo-only vs. with contractor)
+- For each active project with a contractor: calculate effective gross margin using `(project revenue - contractor cost) ÷ project revenue`
+- Compare to the target margin for that engagement type
+- Flag any project where actual margin is falling below target — this means contractor costs are eating more than expected and project pricing may need to be revisited
 
 ### Step 5 — Client Concentration Check
 - Pull the client concentration rule from `business-plan/plan.md` (no single client should exceed 40% of revenue)
@@ -79,12 +90,14 @@ After confirming cash position:
 ### Step 7 — Flags & Actions
 Consolidate all flags from previous steps into a prioritized action list. Order by urgency:
 1. Overdue invoices (immediate)
-2. Tax set-aside gap (immediate if revenue is coming in)
-3. Budget rule violations
-4. Tool renewals in next 30 days
-5. Client concentration warnings
-6. Pipeline gaps
-7. Revenue tracking update (log this month in `finances.md`)
+2. Contractor payments due but not yet sent (cash management)
+3. Tax set-aside gap (immediate if revenue is coming in)
+4. Gross margin below target on active projects
+5. Budget rule violations
+6. Tool renewals in next 30 days
+7. Client concentration warnings
+8. Pipeline gaps
+9. Revenue tracking update (log this month in `finances.md`)
 
 ### Step 8 — Bottom Line
 Close with a 2-3 sentence plain-English summary: current financial health, the single most important action this month, and whether the business is on track for the quarter.
@@ -98,10 +111,12 @@ Present each step interactively. Final consolidated output:
 **Financial Review — [MONTH YEAR]**
 
 **Cash Position**
-- Mercury balance: $[AMOUNT]
+- Mercury balance (reconciled): $[AMOUNT]
+- Contractor payments due but unpaid: -$[AMOUNT]
+- True cash position: $[AMOUNT]
 - Runway: [X] months at current overhead
 - Revenue received this month: $[AMOUNT]
-- Contractor costs this month: $[AMOUNT]
+- Contractor costs paid: $[AMOUNT]
 - Additional expenses: $[AMOUNT]
 - Standard overhead: $[AMOUNT from finances.md]
 - Net this month: $[AMOUNT]
@@ -120,6 +135,9 @@ Present each step interactively. Final consolidated output:
 - Remaining to hit quarter: $[AMOUNT] in [X] weeks
 - YTD: $[AMOUNT] of $[ANNUAL TARGET]
 
+**Gross Margin** *(if contractor involved)*
+- [PROJECT]: [X]% actual margin vs. [Y]% target [⚠️ below target if applicable]
+
 **Client Concentration**
 - [CLIENT]: [X]% of YTD revenue [⚠️ approaching/exceeding 40% limit if applicable]
 
@@ -136,10 +154,13 @@ Present each step interactively. Final consolidated output:
 [2-3 sentence plain-English summary with the single most important action]
 
 ## Quality Checks
-- Mercury balance collected — runway calculation uses actual balance, not estimated
+- Mercury reconciliation confirmed before any numbers collected
+- True cash position accounts for contractor payments due but not yet sent
+- Runway uses true cash position, not raw Mercury balance
 - All overhead figures pulled from `finances.md` — not guessed
-- Contractor costs included in expense total — not invisible
+- Contractor costs paid and contractor costs owed tracked separately
 - Outstanding invoices split into current vs. overdue — overdue flagged for immediate action
+- Gross margin checked against targets from `business-plan/plan.md` for any project with contractor involvement
 - Tax set-aside calculated as a specific dollar amount, not a vague reminder
 - Estimated tax payment reminder only surfaced when YTD revenue suggests $1,000+ tax liability
 - Client concentration calculated if multiple clients active — 40% rule from business plan applied
