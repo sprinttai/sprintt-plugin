@@ -7,11 +7,12 @@ description: Generate a Statement of Work (SOW) for a client engagement. Use whe
 ## Context
 Before executing, use the GitHub connector to read the following files from the **knowledge-base** repository:
 - `legal/templates/sow.md` — the SOW template (covers both project-based and retainer engagements)
+- `legal/defaults.md` — standard contractual terms (review acceptance window, revision rounds)
 - `services/pricing.md` — pricing ranges, payment structure rules, hourly rates, and retainer tier details
 - `services/offerings.md` — service descriptions to help articulate scope and deliverables accurately
 - `company/entity.md` — Sprintt's entity details and signatory
 
-These files are the source of truth. Use `services/pricing.md` to guide payment structure and validate that fees are consistent with Sprintt's standard ranges.
+These files are the source of truth. Use `services/pricing.md` to guide payment structure and validate that fees are consistent with Sprintt's standard ranges. Use `legal/defaults.md` for acceptance window and revision round defaults.
 
 ## Inputs
 
@@ -121,4 +122,5 @@ End with: "Ready to attach as Exhibit A or send standalone. Copy into a Google D
 - **Retainer:** Tier, monthly rate, and included deliverables sourced from `services/pricing.md`; month-to-month rate is standard rate + 10%; initial 3-month commitment end date is correct; Section 7.6 pause policy matches `services/pricing.md`
 - Sections not applicable to the engagement type are omitted from output entirely
 - Standard hourly rate for additional/overage work sourced from `services/pricing.md` — not hardcoded
+- Review acceptance window and revision rounds sourced from `legal/defaults.md` — not hardcoded
 - Signatory matches `company/entity.md` exactly (Ricardo Ramirez, AR — Authorized Representative)

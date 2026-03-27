@@ -9,11 +9,12 @@ Before executing, use the GitHub connector to read the following files from the 
 - `legal/templates/consulting-agreement.md` — standard Consulting Services Agreement (MSA)
 - `legal/templates/design-partner-agreement.md` — Design Partner Agreement for early/discounted clients
 - `legal/templates/sow.md` — SOW template (needed if user proceeds to SOW generation)
+- `legal/defaults.md` — standard contractual terms (termination notice, cure period, confidentiality survival, non-solicitation, data return, force majeure thresholds)
 - `company/entity.md` — Sprintt's entity details, address, and signatory
 - `services/pricing.md` — pricing rules and rate floor (needed for discount validation and SOW fees)
 - `services/offerings.md` — service descriptions (needed if user proceeds to SOW generation)
 
-These files are the source of truth. Do not invent or assume any entity details.
+These files are the source of truth. Do not invent or assume any entity details. All `[PLACEHOLDER]` values referencing durations, notice periods, or survival windows must be sourced from `legal/defaults.md`.
 
 ## Inputs
 First, ask the user which contract type they need if not specified via $ARGUMENTS:
@@ -67,6 +68,7 @@ If the user says **no**, end with: "Ready when you are. Run `/sprintt:generate-s
 - Every `[BRACKETED]` field is filled in — none left blank
 - Consultant/Party A entity name matches exactly what is in `company/entity.md` — never abbreviate
 - Signatory, governing law, and jurisdiction match `company/entity.md` exactly
+- All duration and notice period placeholders sourced from `legal/defaults.md` — not hardcoded
 - For Design Partner Agreement: discount percentage is filled in, effective rate is at or above the minimum floor from `services/pricing.md`, and SOW exhibit reference is noted
 - Effective Date matches what the user confirmed
 - User is always prompted about the SOW before the skill ends

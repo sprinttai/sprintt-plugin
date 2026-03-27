@@ -7,9 +7,10 @@ description: Generate an NDA for a new prospect or client — mutual or one-way.
 ## Context
 Before executing, use the GitHub connector to read the following files from the **knowledge-base** repository:
 - `legal/templates/nda.md` — the NDA template (mutual by default)
+- `legal/defaults.md` — standard contractual terms (NDA term, survival period, termination notice, return/destroy window)
 - `company/entity.md` — Sprintt's entity details, address, and signatory
 
-These files are the source of truth. Do not invent or assume any entity details.
+These files are the source of truth. Do not invent or assume any entity details. All `[PLACEHOLDER]` values in the NDA template that reference durations or notice periods must be sourced from `legal/defaults.md`.
 
 ## Inputs
 Ask the user for the following if not already provided (you can ask all at once):
@@ -50,4 +51,5 @@ End with a one-line note: "Ready to send. Copy into a Google Doc, convert to PDF
 - Party A entity name matches exactly what is in `company/entity.md` — never abbreviate
 - Signatory, governing law, and jurisdiction match `company/entity.md` exactly
 - Effective Date matches what the user confirmed
+- All duration and notice period placeholders sourced from `legal/defaults.md` — not hardcoded
 - For one-way NDAs: title says "NON-DISCLOSURE AGREEMENT" (not "MUTUAL"), and obligations apply only to the Receiving Party
