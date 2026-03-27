@@ -5,7 +5,7 @@ description: Write a LinkedIn post for Sprintt. Use when the user asks to write,
 # Write LinkedIn Post
 
 ## Context
-Before executing, use the GitHub connector to read the following files from the **knowledge-base** repository:
+Before executing, read the following files directly from the **knowledge-base** directory (it is mounted and accessible — use the Read tool):
 - `marketing/strategy.md` — LinkedIn content types, cadence, and goals
 - `brand/guidelines.md` — voice, tone, and copy rules
 - `company/overview.md` — proof points and differentiators to draw from

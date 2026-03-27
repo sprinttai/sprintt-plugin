@@ -5,7 +5,7 @@ description: Generate a consulting contract for a new client. Use when the user 
 # Generate Contract
 
 ## Context
-Before executing, use the GitHub connector to read the following files from the **knowledge-base** repository:
+Before executing, read the following files directly from the **knowledge-base** directory (it is mounted and accessible — use the Read tool):
 - `legal/templates/consulting-agreement.md` — standard Consulting Services Agreement (MSA)
 - `legal/templates/design-partner-agreement.md` — Design Partner Agreement for early/discounted clients
 - `legal/templates/sow.md` — SOW template (needed if user proceeds to SOW generation)

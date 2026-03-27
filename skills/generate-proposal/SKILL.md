@@ -5,7 +5,7 @@ description: Generate a client proposal for a consulting engagement. Use when th
 # Generate Proposal
 
 ## Context
-Before executing, use the GitHub connector to read the following files from the **knowledge-base** repository:
+Before executing, read the following files directly from the **knowledge-base** directory (it is mounted and accessible — use the Read tool):
 - `legal/templates/proposal.md` — the proposal template
 - `services/offerings.md` — service descriptions and delivery model
 - `services/pricing.md` — pricing ranges, payment structures, and rate rules

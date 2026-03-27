@@ -5,7 +5,7 @@ description: Review the Sprintt business launch checklist, surface what's been c
 # Checklist Update
 
 ## Context
-Before executing, use the GitHub connector to read the following files from the **knowledge-base** repository:
+Before executing, read the following files directly from the **knowledge-base** directory (it is mounted and accessible — use the Read tool):
 - `business-plan/checklist.md` — the master Sprintt launch checklist organized by phase
 
 This file is the source of truth. Do not invent or assume any checklist items. Work only with what is in the file.

@@ -5,7 +5,7 @@ description: Prepare for a discovery call with a prospect. Use when the user has
 # Discovery Prep
 
 ## Context
-Before executing, use the GitHub connector to read the following files from the **knowledge-base** repository:
+Before executing, read the following files directly from the **knowledge-base** directory (it is mounted and accessible — use the Read tool):
 - `operations/discovery-call.md` — call structure, questions, red flags, and follow-up template
 - `services/offerings.md` — service descriptions to identify likely fit
 - `services/ideal-client.md` — ICP profiles to assess prospect fit and spot anti-patterns

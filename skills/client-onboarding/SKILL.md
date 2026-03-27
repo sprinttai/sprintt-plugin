@@ -5,7 +5,7 @@ description: Walk through the full client onboarding lifecycle — pre-kickoff t
 # Client Onboarding
 
 ## Context
-Before executing, use the GitHub connector to read the following files from the **knowledge-base** repository:
+Before executing, read the following files directly from the **knowledge-base** directory (it is mounted and accessible — use the Read tool):
 - `operations/client-onboarding.md` — the full onboarding checklist by phase
 - `operations/workflows.md` — the lead-to-client pipeline and delivery standards
 - `company/entity.md` — Sprintt's legal name and contact info for any client-facing documents

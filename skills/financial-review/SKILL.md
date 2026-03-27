@@ -5,7 +5,7 @@ description: Conduct a monthly financial review — input actuals, compare to ta
 # Financial Review
 
 ## Context
-Before executing, use the GitHub connector to read the following files from the **knowledge-base** repository:
+Before executing, read the following files directly from the **knowledge-base** directory (it is mounted and accessible — use the Read tool):
 - `company/finances.md` — operating costs, revenue tracking, financial goals, budget rules, tool renewal dates, and tax notes
 - `business-plan/plan.md` — financial projections, quarterly targets, success metrics, client concentration rules, and gross margin targets
 

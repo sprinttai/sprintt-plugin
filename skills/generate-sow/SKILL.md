@@ -5,7 +5,7 @@ description: Generate a Statement of Work (SOW) for a client engagement. Use whe
 # Generate SOW
 
 ## Context
-Before executing, use the GitHub connector to read the following files from the **knowledge-base** repository:
+Before executing, read the following files directly from the **knowledge-base** directory (it is mounted and accessible — use the Read tool):
 - `legal/templates/sow.md` — the SOW template (covers both project-based and retainer engagements)
 - `legal/defaults.md` — standard contractual terms (review acceptance window, revision rounds)
 - `services/pricing.md` — pricing ranges, payment structure rules, hourly rates, and retainer tier details
