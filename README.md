@@ -28,8 +28,14 @@ Skills are invoked in Cowork as `/sprintt:[skill-name]`.
 | Discovery Prep | `/sprintt:discovery-prep` | Prepare for a discovery call — ICP assessment, tailored questions, pre-filled follow-up email |
 | Generate Proposal | `/sprintt:generate-proposal` | Generate a client proposal with scoped deliverables, timeline, and investment |
 
+### Wave 3 — Grow Pipeline
+
+| Skill | Invocation | Description |
+|-------|-----------|-------------|
+| Write LinkedIn Post | `/sprintt:write-linkedin-post` | Write a LinkedIn post in Sprintt's voice with optional X/Twitter adaptation |
+| Write Blog Post | `/sprintt:write-blog-post` | Write an SEO-optimized blog post as a ready-to-publish MDX file |
+
 ### Coming Soon
-- **Wave 3 — Grow Pipeline:** `write-linkedin-post`, `write-blog-post`, `write-newsletter`
 - **Wave 4 — Run the Business:** `client-onboarding`, `financial-review`, `checklist-update`
 
 ## How It Works
