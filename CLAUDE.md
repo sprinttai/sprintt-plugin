@@ -22,16 +22,16 @@ The Sprintt knowledge base (source of truth for all business context) lives at:
 
 | Skill | KB Files to Read |
 |-------|-----------------|
-| `generate-nda` | `legal/templates/nda.md`, `company/entity.md` |
-| `generate-contract` | `legal/templates/consulting-agreement.md`, `legal/templates/design-partner-agreement.md`, `legal/templates/sow.md`, `company/entity.md`, `services/pricing.md`, `services/offerings.md` |
-| `generate-sow` | `legal/templates/sow.md`, `services/pricing.md`, `services/offerings.md`, `company/entity.md` |
+| `generate-nda` | `legal/templates/nda.md`, `legal/defaults.md`, `company/entity.md` |
+| `generate-contract` | `legal/templates/consulting-agreement.md`, `legal/templates/design-partner-agreement.md`, `legal/templates/sow.md`, `legal/defaults.md`, `company/entity.md`, `services/pricing.md`, `services/offerings.md` |
+| `generate-sow` | `legal/templates/sow.md`, `legal/defaults.md`, `services/pricing.md`, `services/offerings.md`, `company/entity.md` |
 | `generate-proposal` | `legal/templates/proposal.md`, `services/offerings.md`, `services/pricing.md`, `services/ideal-client.md`, `company/overview.md`, `brand/guidelines.md` |
 | `invoicing-guide` | `company/entity.md`, `company/finances.md`, `services/pricing.md` |
 | `discovery-prep` | `operations/discovery-call.md`, `services/offerings.md`, `services/ideal-client.md` |
 | `write-linkedin-post` | `marketing/strategy.md`, `brand/guidelines.md`, `company/overview.md` |
 | `write-blog-post` | `marketing/strategy.md`, `brand/guidelines.md`, `services/offerings.md` |
 | `write-newsletter` | `marketing/strategy.md`, `brand/guidelines.md` |
-| `client-onboarding` | `operations/client-onboarding.md`, `operations/workflows.md`, `company/entity.md`, `services/pricing.md` |
+| `client-onboarding` | `operations/client-onboarding.md`, `operations/workflows.md`, `company/entity.md`, `legal/defaults.md`, `services/pricing.md` |
 | `financial-review` | `company/finances.md`, `business-plan/plan.md` |
 | `checklist-update` | `business-plan/checklist.md` |
 
@@ -57,6 +57,6 @@ Follow the wave priority in `/Users/ricardoramirez/Documents/Projects/knowledge-
 
 ## Rules
 
-- Never hardcode rates or entity details in SKILL.md — pull them from the KB and put them in `reference.md`
+- Never hardcode rates, entity details, or contractual terms in SKILL.md — pull rates from `services/pricing.md`, structural terms from `legal/defaults.md`, and entity info from `company/entity.md`; put them in `reference.md`
 - Every client-facing skill must include entity name ("Ramirez Digital Ventures LLC d/b/a Sprintt") in its `reference.md`
 - Bump the version in `.claude-plugin/plugin.json` when skills change (MAJOR.MINOR.PATCH)

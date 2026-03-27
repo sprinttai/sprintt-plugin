@@ -9,9 +9,10 @@ Before executing, use the GitHub connector to read the following files from the 
 - `operations/client-onboarding.md` — the full onboarding checklist by phase
 - `operations/workflows.md` — the lead-to-client pipeline and delivery standards
 - `company/entity.md` — Sprintt's legal name and contact info for any client-facing documents
+- `legal/defaults.md` — standard contractual terms (deliverable acceptance window, revision rounds)
 - `services/pricing.md` — payment structure rules, retainer terms, expense reimbursement policy, and out-of-scope billing rates
 
-Read all four files before proceeding. Pull all rates, thresholds, and payment terms directly from `services/pricing.md` — do not hardcode or assume any numbers.
+Read all five files before proceeding. Pull all rates, thresholds, and payment terms directly from `services/pricing.md`. Pull the deliverable acceptance window and revision round defaults from `legal/defaults.md` — do not hardcode or assume any numbers.
 
 ## Inputs
 Collect the following — ask conversationally, one at a time if not provided upfront:
@@ -78,9 +79,9 @@ Explicitly communicate to the client: all scope changes must be documented in wr
 
 **Deliverable approval process:**
 Walk the client through how approvals work. Per the SOW:
-- Deliverables are submitted for review with a clear acceptance window (confirm the specific timeframe in the user's SOW)
+- Deliverables are submitted for review with a clear acceptance window (default is [REVIEW_ACCEPTANCE_WINDOW_DAYS] per `legal/defaults.md` — confirm against the actual SOW if already executed)
 - If no feedback is received within that window, the deliverable is deemed accepted
-- Feedback must be consolidated — one round of revisions per deliverable unless additional rounds are scoped
+- Feedback must be consolidated — default is [REVISION_ROUNDS] rounds of revisions per deliverable per `legal/defaults.md`, unless additional rounds were scoped
 
 **Expense reimbursement:**
 Remind the client that out-of-pocket costs incurred on their behalf — API credits, third-party tool licenses, travel — are passed through at cost. The approval threshold for individual expenses (read from `services/pricing.md`) requires prior written approval. Establishing this verbally at kickoff prevents surprise invoice line items later.
