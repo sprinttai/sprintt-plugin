@@ -1,0 +1,17 @@
+{
+  "name": "sprinttai/sprintt-plugin",
+  "owner": {
+    "name": "Ricardo Ramirez",
+    "email": "ricardo@sprintt.ai"
+  },
+  "metadata": {
+    "description": "Sprintt business OS — proposals, contracts, content, and operations for an AI consulting firm."
+  },
+  "plugins": [
+    {
+      "name": "sprintt",
+      "description": "Sprintt business OS — proposals, contracts, content, and operations for an AI consulting firm.",
+      "source": "./"
+    }
+  ]
+}
