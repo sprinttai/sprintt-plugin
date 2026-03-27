@@ -26,7 +26,7 @@ The Sprintt knowledge base (source of truth for all business context) lives at:
 | `generate-contract` | `legal/templates/consulting-agreement.md`, `legal/templates/design-partner-agreement.md`, `company/entity.md` |
 | `generate-sow` | `legal/templates/sow.md`, `services/pricing.md`, `services/offerings.md` |
 | `generate-proposal` | `legal/templates/proposal.md`, `services/offerings.md`, `services/pricing.md`, `services/ideal-client.md`, `company/overview.md`, `brand/guidelines.md` |
-| `generate-invoice` | `company/entity.md`, `company/finances.md` |
+| `invoicing-guide` | `company/entity.md`, `company/finances.md` |
 | `discovery-prep` | `operations/discovery-call.md`, `services/offerings.md`, `services/ideal-client.md` |
 | `write-linkedin-post` | `marketing/strategy.md`, `brand/guidelines.md`, `company/overview.md` |
 | `write-blog-post` | `marketing/strategy.md`, `brand/guidelines.md`, `services/offerings.md` |
@@ -50,9 +50,9 @@ Skills are invoked in Cowork as `/sprintt:[skill-name]` (e.g., `/sprintt:generat
 ## Build Order
 
 Follow the wave priority in `/Users/ricardoramirez/Documents/Projects/knowledge-base/plugin/skills-roadmap.md`:
-- **Wave 1 (Get Paid):** generate-nda ✅, generate-contract, generate-sow, generate-invoice
-- **Wave 2 (Win Deals):** generate-proposal, discovery-prep
-- **Wave 3 (Grow Pipeline):** write-linkedin-post, write-blog-post, write-newsletter
+- **Wave 1 (Get Paid):** generate-nda ✅, generate-contract ✅, generate-sow ✅, invoicing-guide ✅
+- **Wave 2 (Win Deals):** generate-proposal ✅, discovery-prep ✅
+- **Wave 3 (Grow Pipeline):** write-linkedin-post ✅, write-blog-post ✅, write-newsletter ✅
 - **Wave 4 (Run the Business):** client-onboarding, financial-review, checklist-update
 
 ## Rules

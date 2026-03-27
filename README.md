@@ -34,6 +34,7 @@ Skills are invoked in Cowork as `/sprintt:[skill-name]`.
 |-------|-----------|-------------|
 | Write LinkedIn Post | `/sprintt:write-linkedin-post` | Write a LinkedIn post in Sprintt's voice with optional X/Twitter adaptation |
 | Write Blog Post | `/sprintt:write-blog-post` | Write an SEO-optimized blog post as a ready-to-publish MDX file |
+| Write Newsletter | `/sprintt:write-newsletter` | Draft an "AI in Practice" newsletter issue ready to paste into any platform |
 
 ### Coming Soon
 - **Wave 4 — Run the Business:** `client-onboarding`, `financial-review`, `checklist-update`
