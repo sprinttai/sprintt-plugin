@@ -1,5 +1,5 @@
 ---
-description: Walk through the client onboarding checklist for a new engagement — pre-kickoff, kickoff, and post-kickoff steps with clear next actions. Use when a new client has signed and you need to make sure nothing gets missed.
+description: Walk through the full client onboarding lifecycle — pre-kickoff through closeout — with contractor steps, invoice reminders, and phase-by-phase checklists. Use when a new client has signed or at any point during an active engagement.
 ---
 
 # Client Onboarding
@@ -19,48 +19,99 @@ Collect the following:
 2. **Project name** — the engagement name or SOW title
 3. **Engagement type** — Design Partner or Standard Client (affects closeout steps)
 4. **Signed date** — when was the agreement fully executed?
-5. **Current phase** — are you starting from scratch (pre-kickoff) or mid-onboarding? If mid-onboarding, which steps are already done?
+5. **SOW payment schedule** — the milestone breakdown and total fee (e.g., "$10,000 total: 40% upfront, 30% at midpoint, 30% on delivery")
+6. **Contractor involved?** — is an SDLC contractor on this engagement? (yes/no)
+7. **Current phase** — starting from scratch (pre-kickoff) or mid-engagement? If mid-engagement, which steps are already complete?
 
 If the user provides any of this via $ARGUMENTS, use it and only ask for what's missing.
 
 ## Process
-1. Read the KB files listed in Context above
-2. Determine the current phase based on the signed date and user input
-3. Walk through each phase of the checklist in order:
-   - **Pre-Kickoff** (must complete within 48 hours of signed agreement)
-   - **Kickoff Meeting**
-   - **Post-Kickoff** (within first week)
-4. For each phase, present the checklist items as a scannable list
-5. Ask the user to confirm which items are done and which are outstanding
-6. Flag any items that are time-sensitive based on the signed date (e.g., kickoff must be within 1 week)
-7. Summarize outstanding items as a prioritized action list
+
+### Step 1 — Contractor Setup (if applicable)
+If a contractor is involved, address these before any other onboarding steps:
+- Has Sprintt's NDA been executed with the contractor? (separate from the client NDA)
+- Has the contractor reviewed the SOW and confirmed their availability for the full timeline?
+- Has the contractor's rate been agreed and documented?
+- Does the contractor know what's in scope and out of scope — and that all client communication goes through Ricardo?
+- Are system access invitations for the contractor queued (to be sent after client grants access)?
+
+Flag any of these that are outstanding before proceeding. The contractor must be aligned before kickoff.
+
+### Step 2 — Walk Each Phase
+Present each phase of the checklist from `operations/client-onboarding.md` in order. Cover all phases:
+
+- **Pre-Kickoff** (must complete within 48 hours of signed agreement)
+- **Kickoff Meeting**
+- **Post-Kickoff** (within first week)
+- **Ongoing Throughout Engagement**
+- **Closeout**
+
+For each phase, present the items as a scannable checklist. Ask the user to confirm which are done and which are outstanding. Flag any time-sensitive items based on the signed date.
+
+### Step 3 — Invoice Reminder Schedule
+Using the SOW payment schedule provided, calculate each invoice milestone and output a calendar reminder schedule:
+
+- Calculate the exact dollar amount for each milestone
+- Assign a target invoice date for each (based on signed date, project timeline, or milestone delivery)
+- Output as a list the user can use to set calendar reminders
+
+### Step 4 — Summarize Outstanding Actions
+After all phases, output a prioritized list of everything still outstanding, ordered by urgency.
 
 ## Output
 
-**Onboarding Status: [CLIENT NAME] — [PROJECT NAME]**
+**Onboarding Tracker: [CLIENT NAME] — [PROJECT NAME]**
 - Engagement type: [TYPE]
 - Signed: [DATE]
-- Current phase: [PHASE]
+- Contractor: [YES — [NAME/ROLE] / NO]
+
+---
+
+**Contractor Setup** *(if applicable)*
+- [ ] NDA executed with contractor
+- [ ] Contractor confirmed availability for full timeline
+- [ ] Rate agreed and documented
+- [ ] Scope briefing complete — contractor knows what's in/out and that all client comms go through Ricardo
+- [ ] System access invitations queued
+
+---
 
 **[Phase Name]**
 - [x] Completed item
-- [ ] Outstanding item — [any relevant note or deadline]
+- [ ] Outstanding item — [note or deadline]
 
-(Repeat for each phase)
+*(Repeat for each phase)*
+
+---
+
+**Invoice Reminder Schedule**
+| Milestone | Amount | Target Invoice Date | Set Reminder For |
+|-----------|--------|--------------------|--------------------|
+| Upfront deposit | $[X] | [DATE] | Day of signing |
+| Midpoint | $[X] | [DATE] | [X days before milestone] |
+| Final delivery | $[X] | [DATE] | [X days before delivery] |
+
+---
 
 **Your Next Actions (in order):**
 1. [Most urgent outstanding item]
 2. [Next item]
 3. ...
 
-**Reminders**
-- Kickoff meeting must be scheduled within 1 week of signed agreement
+---
+
+**Standing Reminders**
 - First payment must be confirmed in Mercury before kickoff
+- Kickoff meeting must be scheduled within 1 week of signing
 - Add client to revenue tracking in `company/finances.md`
-- Internal Google Drive folder: `Clients/[ClientName]/[ProjectName]`
+- Google Drive folder: `Clients/[ClientName]/[ProjectName]` — save SOW here
+- Professional liability (E&O) insurance: not yet in place — low risk now, revisit as engagements grow
+- Weekly status updates to client are required even when nothing major happened
 
 ## Quality Checks
-- Pre-kickoff items are checked first — payment and communication setup must be confirmed before kickoff
-- Kickoff deadline is surfaced if more than 3 days have passed since signing
-- Design Partner clients get closeout reminders for case study and referral conversation
-- No steps are skipped or assumed complete without user confirmation
+- Contractor setup is checked before any other phase if a contractor is on the engagement
+- Pre-kickoff items (payment, communication channel) are confirmed before kickoff proceeds
+- Kickoff deadline is flagged if more than 3 days have passed since signing
+- Invoice schedule math matches the SOW total and payment percentages exactly
+- Design Partner closeout includes case study initiation and referral conversation
+- No phase is skipped — all five phases are presented even if the user is starting mid-engagement
