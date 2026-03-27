@@ -25,13 +25,14 @@ Ask the user: has the Mercury account been reconciled this month? If no, prompt 
 5. **YTD revenue** — total received since January 1 (or business start if mid-year)
 
 **Section 2 — Expenses**
-6. **Contractor costs paid this month** — payments already sent to contractors
-7. **Contractor payments due but not yet paid** — any contractor invoices received but not yet paid (affects true cash position)
-8. **New or one-time expenses** — anything beyond the standard recurring overhead in `finances.md`
+6. **Contractor costs paid this month** — total dollar amount already paid to contractors this month
+7. **Contractor payments due but not yet paid** — any contractor invoices received but not yet paid, with amounts
+8. **New or one-time expenses this month** — anything beyond the standard recurring overhead in `finances.md`, with amounts
 
 **Section 3 — Business Health**
-9. **Active clients, revenue per client, and contractor hours used per project** — needed for both client concentration and gross margin checks
-10. **Pipeline** — proposals out (with estimated values), discovery calls scheduled, deals close to closing
+9. **Active projects with contractors** — for each project using a contractor this month: project name, total project revenue, and total contractor cost for that project (dollar amount, not hours — needed for gross margin calculation)
+10. **Active clients and revenue per client** — needed for client concentration check
+11. **Pipeline** — proposals out (with estimated values), discovery calls scheduled, deals close to closing
 
 If the user provides any of this via $ARGUMENTS, use it and only ask for what's missing.
 
@@ -42,10 +43,13 @@ Work through this skill conversationally, section by section. Present calculatio
 ### Step 1 — Cash Position & Runway
 After collecting Section 1 and 2 inputs:
 
-- Pull monthly overhead from `finances.md` (do not guess)
+- Pull monthly fixed overhead from `finances.md` (do not guess)
+- Calculate **total monthly burn:** fixed overhead + contractor costs paid this month + additional expenses this month
 - Calculate **true cash position:** Mercury balance - contractor payments due but not yet paid
-- Calculate **runway:** true cash position ÷ monthly overhead = months of runway if revenue stopped today
-- Calculate **net received this month:** revenue received - monthly overhead - contractor costs paid
+- Calculate two runway figures:
+  - **Fixed-cost runway:** Mercury balance ÷ fixed overhead — how long the business survives on subscriptions/tools alone if everything stopped
+  - **Current burn runway:** true cash position ÷ total monthly burn — realistic runway at this month's actual spending rate. Only show this if total monthly burn exceeds fixed overhead; otherwise the two figures are the same.
+- Calculate **net this month:** revenue received - fixed overhead - contractor costs paid - additional expenses
 - Flag any outstanding invoices that are past their due date as **overdue** — these need immediate follow-up action, not just a note
 - Present a clean cash summary and ask the user to confirm before proceeding
 
@@ -66,15 +70,16 @@ After confirming cash position:
 
 ### Step 4 — Expense Review & Gross Margin Check
 - Pull budget rules and gross margin targets from `finances.md` and `business-plan/plan.md`
-- Total all expenses: standard overhead + contractor costs paid + new/one-time expenses
+- Total all expenses: fixed overhead + contractor costs paid + new/one-time expenses
 - Check for budget rule violations (e.g., monthly overhead exceeding the target ceiling)
 - Check tool renewal dates from `finances.md` — flag any tools renewing in the next 60 days
 
 **Gross margin check (if contractor was used this month):**
 - Pull gross margin targets from `business-plan/plan.md` (varies by engagement type — Ricardo-only vs. with contractor)
-- For each active project with a contractor: calculate effective gross margin using `(project revenue - contractor cost) ÷ project revenue`
-- Compare to the target margin for that engagement type
-- Flag any project where actual margin is falling below target — this means contractor costs are eating more than expected and project pricing may need to be revisited
+- For each active project with a contractor, use the contractor cost (dollar amount) provided in Section 3:
+  - Calculate effective gross margin: `(project revenue - contractor cost) ÷ project revenue`
+  - Compare to the target margin for that engagement type from `business-plan/plan.md`
+  - Flag any project where actual margin is falling below target — this means contractor costs are eating more than expected and project pricing may need to be revisited
 
 ### Step 5 — Client Concentration Check
 - Pull the client concentration rule from `business-plan/plan.md` (no single client should exceed 40% of revenue)
@@ -97,7 +102,7 @@ Consolidate all flags from previous steps into a prioritized action list. Order 
 6. Tool renewals in next 30 days
 7. Client concentration warnings
 8. Pipeline gaps
-9. Revenue tracking update (log this month in `finances.md`)
+9. Revenue tracking update — output the exact row to add to `finances.md` (see Output section)
 
 ### Step 8 — Bottom Line
 Close with a 2-3 sentence plain-English summary: current financial health, the single most important action this month, and whether the business is on track for the quarter.
@@ -114,12 +119,13 @@ Present each step interactively. Final consolidated output:
 - Mercury balance (reconciled): $[AMOUNT]
 - Contractor payments due but unpaid: -$[AMOUNT]
 - True cash position: $[AMOUNT]
-- Runway: [X] months at current overhead
-- Revenue received this month: $[AMOUNT]
+- Fixed overhead: $[AMOUNT from finances.md]
 - Contractor costs paid: $[AMOUNT]
 - Additional expenses: $[AMOUNT]
-- Standard overhead: $[AMOUNT from finances.md]
-- Net this month: $[AMOUNT]
+- Total burn this month: $[fixed overhead + contractor costs paid + additional expenses]
+- Net this month: $[revenue received - fixed overhead - contractor costs paid - additional expenses]
+- Fixed-cost runway: [X] months (Mercury balance ÷ fixed overhead)
+- Current burn runway: [X] months (true cash position ÷ total burn) *(shown only if burn exceeds fixed overhead)*
 
 **Invoices**
 - Current (within terms): $[AMOUNT] — [CLIENT, DUE DATE]
@@ -150,21 +156,29 @@ Present each step interactively. Final consolidated output:
 **Flags & Actions**
 - [ ] [Prioritized action items]
 
+**Revenue Tracking — Add to `finances.md`**
+```
+| [Month Year] | $[revenue received] | [client name(s)] | [brief note] |
+```
+
 **Bottom Line**
 [2-3 sentence plain-English summary with the single most important action]
 
 ## Quality Checks
 - Mercury reconciliation confirmed before any numbers collected
+- Total monthly burn calculated correctly: fixed overhead + contractor costs paid + additional expenses
+- Net this month includes all expense categories: fixed overhead + contractor costs paid + additional expenses
+- Two runway figures shown when contractor burn is active; single figure when burn equals fixed overhead only
 - True cash position accounts for contractor payments due but not yet sent
-- Runway uses true cash position, not raw Mercury balance
+- Current burn runway uses true cash position ÷ total monthly burn — not fixed overhead alone
 - All overhead figures pulled from `finances.md` — not guessed
-- Contractor costs paid and contractor costs owed tracked separately
+- Contractor costs captured as dollar amounts per project — not hours — enabling accurate margin calculation
+- Gross margin formula uses contractor cost (dollars): (project revenue - contractor cost) ÷ project revenue
 - Outstanding invoices split into current vs. overdue — overdue flagged for immediate action
-- Gross margin checked against targets from `business-plan/plan.md` for any project with contractor involvement
 - Tax set-aside calculated as a specific dollar amount, not a vague reminder
 - Estimated tax payment reminder only surfaced when YTD revenue suggests $1,000+ tax liability
 - Client concentration calculated if multiple clients active — 40% rule from business plan applied
 - Tool renewals in next 60 days checked against `finances.md` renewal dates
 - Quarterly target sourced from `business-plan/plan.md`
+- Revenue tracking row outputted in correct table format ready to paste into `finances.md`
 - Skill worked conversationally — sections presented one at a time
-- Revenue tracking update flagged as an action item every month
