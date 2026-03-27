@@ -5,7 +5,7 @@ description: Conduct a monthly financial review — input actuals, compare to ta
 # Financial Review
 
 ## Context
-Before executing, locate the knowledge-base by running `find /sessions -maxdepth 4 -name "knowledge-base" -type d 2>/dev/null | head -1`, then read the following files from that path:
+Before executing, use the bundled reference.md file in this skill's directory — find it by running `find /sessions -name "reference.md" -path "*/skills/financial-review/*" 2>/dev/null | head -1` — it contains all required KB content. The files embedded in reference.md are:
 - `company/finances.md` — operating costs, revenue tracking, financial goals, budget rules, tool renewal dates, and tax notes
 - `business-plan/plan.md` — financial projections, quarterly targets, success metrics, client concentration rules, and gross margin targets
 

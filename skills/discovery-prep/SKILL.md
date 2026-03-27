@@ -5,7 +5,7 @@ description: Prepare for a discovery call with a prospect. Use when the user has
 # Discovery Prep
 
 ## Context
-Before executing, locate the knowledge-base by running `find /sessions -maxdepth 4 -name "knowledge-base" -type d 2>/dev/null | head -1`, then read the following files from that path:
+Before executing, use the bundled reference.md file in this skill's directory — find it by running `find /sessions -name "reference.md" -path "*/skills/discovery-prep/*" 2>/dev/null | head -1` — it contains all required KB content. The files embedded in reference.md are:
 - `operations/discovery-call.md` — call structure, questions, red flags, and follow-up template
 - `services/offerings.md` — service descriptions to identify likely fit
 - `services/ideal-client.md` — ICP profiles to assess prospect fit and spot anti-patterns

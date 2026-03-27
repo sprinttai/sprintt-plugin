@@ -5,7 +5,7 @@ description: Review the Sprintt business launch checklist, surface what's been c
 # Checklist Update
 
 ## Context
-Before executing, locate the knowledge-base by running `find /sessions -maxdepth 4 -name "knowledge-base" -type d 2>/dev/null | head -1`, then read the following files from that path:
+Before executing, use the bundled reference.md file in this skill's directory — find it by running `find /sessions -name "reference.md" -path "*/skills/checklist-update/*" 2>/dev/null | head -1` — it contains all required KB content. The files embedded in reference.md are:
 - `business-plan/checklist.md` — the master Sprintt launch checklist organized by phase
 
 This file is the source of truth. Do not invent or assume any checklist items. Work only with what is in the file.

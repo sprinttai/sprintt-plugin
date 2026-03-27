@@ -5,7 +5,7 @@ description: Guide the user through billing a client in Mercury based on their S
 # Invoicing Guide
 
 ## Context
-Before executing, locate the knowledge-base by running `find /sessions -maxdepth 4 -name "knowledge-base" -type d 2>/dev/null | head -1`, then read the following files from that path:
+Before executing, use the bundled reference.md file in this skill's directory — find it by running `find /sessions -name "reference.md" -path "*/skills/invoicing-guide/*" 2>/dev/null | head -1` — it contains all required KB content. The files embedded in reference.md are:
 - `company/entity.md` — Sprintt's legal name, address, and EIN
 - `company/finances.md` — banking details, payment methods, and default payment terms
 - `services/pricing.md` — payment structure rules and late payment terms

@@ -5,7 +5,7 @@ description: Generate a Statement of Work (SOW) for a client engagement. Use whe
 # Generate SOW
 
 ## Context
-Before executing, locate the knowledge-base by running `find /sessions -maxdepth 4 -name "knowledge-base" -type d 2>/dev/null | head -1`, then read the following files from that path:
+Before executing, use the bundled reference.md file in this skill's directory — find it by running `find /sessions -name "reference.md" -path "*/skills/generate-sow/*" 2>/dev/null | head -1` — it contains all required KB content. The files embedded in reference.md are:
 - `legal/templates/sow.md` — the SOW template (covers both project-based and retainer engagements)
 - `legal/defaults.md` — standard contractual terms (review acceptance window, revision rounds)
 - `services/pricing.md` — pricing ranges, payment structure rules, hourly rates, and retainer tier details

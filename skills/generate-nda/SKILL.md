@@ -5,7 +5,7 @@ description: Generate an NDA for a new prospect or client — mutual or one-way.
 # Generate NDA
 
 ## Context
-Before executing, locate the knowledge-base by running `find /sessions -maxdepth 4 -name "knowledge-base" -type d 2>/dev/null | head -1`, then read the following files from that path:
+Before executing, use the bundled reference.md file in this skill's directory — find it by running `find /sessions -name "reference.md" -path "*/skills/generate-nda/*" 2>/dev/null | head -1` — it contains all required KB content. The files embedded in reference.md are:
 - `legal/templates/nda.md` — the NDA template (mutual by default)
 - `legal/defaults.md` — standard contractual terms (NDA term, survival period, termination notice, return/destroy window)
 - `company/entity.md` — Sprintt's entity details, address, and signatory

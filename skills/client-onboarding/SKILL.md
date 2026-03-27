@@ -5,7 +5,7 @@ description: Walk through the full client onboarding lifecycle — pre-kickoff t
 # Client Onboarding
 
 ## Context
-Before executing, locate the knowledge-base by running `find /sessions -maxdepth 4 -name "knowledge-base" -type d 2>/dev/null | head -1`, then read the following files from that path:
+Before executing, use the bundled reference.md file in this skill's directory — find it by running `find /sessions -name "reference.md" -path "*/skills/client-onboarding/*" 2>/dev/null | head -1` — it contains all required KB content. The files embedded in reference.md are:
 - `operations/client-onboarding.md` — the full onboarding checklist by phase
 - `operations/workflows.md` — the lead-to-client pipeline and delivery standards
 - `company/entity.md` — Sprintt's legal name and contact info for any client-facing documents
