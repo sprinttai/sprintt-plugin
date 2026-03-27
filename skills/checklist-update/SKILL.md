@@ -8,33 +8,41 @@ description: Review the Sprintt business launch checklist, surface what's been c
 Before executing, use the GitHub connector to read the following files from the **knowledge-base** repository:
 - `business-plan/checklist.md` — the master Sprintt launch checklist organized by phase
 
-This file is the source of truth. Do not invent or assume any checklist items.
+This file is the source of truth. Do not invent or assume any checklist items. Work only with what is in the file.
 
 ## Inputs
 Collect the following:
 
 1. **What's changed since the last review?** — Ask the user what they've accomplished recently that might need to be marked complete. They may also mention blockers on specific items.
-2. **Any specific phase to focus on?** — Optional. If the user wants to focus on marketing, legal, or a specific area, note it.
-3. **Current date** — Use today's date to assess time-sensitive items (e.g., Florida Annual Report due May 1, 2027).
+2. **Has revenue or client work started?** — Ask explicitly. This determines whether recurring monthly/quarterly tasks should be surfaced as active obligations or future ones.
+3. **Any specific phase to focus on?** — Optional. If the user wants to focus on a particular area, note it.
 
 If the user provides any of this via $ARGUMENTS, use it and only ask for what's missing.
 
 ## Process
 1. Read `business-plan/checklist.md` from the KB
-2. Present a summary of completion status by phase — how many items are done vs. total in each phase
-3. Ask the user to confirm any newly completed items based on what they shared
-4. Identify all outstanding items across all phases
-5. Prioritize the next 3-5 actions using this logic:
-   - **Blocking items first** — anything that prevents other work from happening
-   - **Revenue-impact items second** — anything that directly affects ability to get paid or win clients
-   - **Time-sensitive items third** — anything with a real deadline approaching
+2. Scan the checklist for two things before presenting anything:
+   - **Deadline language** — any item containing a date, deadline, due date, or time reference. Calculate urgency from today's date and flag these items prominently, regardless of which phase they're in.
+   - **Inconsistencies** — any unchecked item whose checklist text suggests it should be complete given the state of other items (e.g., a prerequisite is unchecked but a dependent item is checked). Surface these as warnings, not assumptions.
+3. Present a summary of completion status by phase — how many items are done vs. total in each phase
+4. Ask the user to confirm any newly completed items based on what they shared
+5. Identify all outstanding items across all phases
+6. Prioritize the next 3-5 actions using this logic:
+   - **Deadline-driven items first** — anything with a date or deadline in the checklist text, ordered by urgency
+   - **Blocking items second** — anything that prevents other work from happening
+   - **Revenue-impact items third** — anything that directly affects ability to get paid or win clients
    - **Quick wins fourth** — items that are low-effort and would meaningfully advance the checklist
-6. Flag any items that are time-sensitive based on today's date
-7. Note any recurring tasks (monthly/quarterly) that are due
+7. Surface recurring tasks (monthly/quarterly) from the checklist only if the user confirmed revenue or client work has started — otherwise note them as upcoming obligations to be aware of
 
 ## Output
 
 **Checklist Review — [DATE]**
+
+**⚠️ Time-Sensitive Items** *(surfaced before anything else if found)*
+- [Item with deadline language] — [calculated urgency from today's date]
+
+**⚠️ Inconsistencies Detected** *(if any)*
+- [Item that appears inconsistent given the state of other items in the checklist]
 
 **Progress by Phase**
 | Phase | Done | Total | Status |
@@ -55,17 +63,15 @@ If the user provides any of this via $ARGUMENTS, use it and only ask for what's 
 2. [Next item] — [brief rationale]
 3. ...
 
-**Time-Sensitive Flags**
-- [Any deadline-driven items, e.g., "Florida Annual Report due May 1, 2027 — 13 months away"]
-
-**Recurring Tasks Due**
-- [Any monthly/quarterly tasks that should be running by now]
+**Recurring Tasks** *(shown only if revenue or client work has started)*
+- [Monthly/quarterly tasks from the checklist that are now active obligations]
 
 **To update the checklist:** Mark items complete in `business-plan/checklist.md` in your knowledge-base repo.
 
 ## Quality Checks
+- Deadline language scanned from checklist text — urgency calculated from today's actual date, not estimated
+- Inconsistencies flagged based on checklist state only — no assumptions about items not in the file
 - Phase completion counts are accurate — count actual checkboxes, don't estimate
+- Recurring tasks surfaced only if user confirmed revenue or client work has started
 - Priorities are actionable today, not vague goals
-- Blocking items (e.g., insurance before first client delivery) are surfaced before convenience items
-- Time-sensitive dates are calculated from today's actual date
-- Recurring tasks are surfaced if any revenue or client activity has started
+- No checklist items invented — all output derives from what is in `business-plan/checklist.md`
